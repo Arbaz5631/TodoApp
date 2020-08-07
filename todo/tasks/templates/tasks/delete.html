@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Delete</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   <style>
+    a{
+        display: block;
+        width:70px;
+        height: 30px;
+        text-align: center;
+        border-radius: 0px;
+        color:blue;
+        font-weight: bold;
+        line-height: 25px;
+        border-style: outset;
+        text-decoration: none;
+        font-weight: none;
+    }
+   </style>
+</head>
+<body>
+
+    <h3><p>Are you sure you want to delete - {{item}}?</p></h3>
+    <div class=' container row mx-1 my-4'>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input class='btn-danger' type="submit" text='Confirm'>
+    </form>&nbsp;
+
+    <a class='btn-primary' href="/">Cancel</a>
+   </div>
+
+
+
+
+</body>
+</html>

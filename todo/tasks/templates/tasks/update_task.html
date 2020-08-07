@@ -1,0 +1,38 @@
+<h3 style="align-content: center;">Update task</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+     #main{
+         background-color: mediumorchid;
+         margin: 20px;
+         padding: 20px;
+         border-radius: 8px;
+         border-style: outset;
+     }
+     body{
+         background-color: navajowhite;
+     }
+     #button{
+         float: right;
+     }
+    </style>
+</head>
+<body>
+
+    <div class='container' id='main'>
+        <form method="POST" action="" >
+            {% csrf_token%}
+        
+            {{form}}
+            <input class='btn btn-primary' id='button' type="submit" value="Update Task">
+        </form>
+    </div>
+        
+</body>
+</html>

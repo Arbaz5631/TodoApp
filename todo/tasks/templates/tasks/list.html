@@ -1,0 +1,87 @@
+<h3 id='heading'>TodoApp</h3>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<style>
+    body{
+        background-color: moccasin;
+    }
+    #main{
+        border-radius: 2%;
+        background-color: lightskyblue;
+    }
+    a{
+        float: right;
+    }
+    #heading{
+        text-align: center;
+        color: crimson;
+    }
+    #inputfield{
+        background-color: lightgrey;
+
+    }
+    #createtask{
+
+        float: right;
+        padding: 1%;
+        
+
+    }
+    input{
+        width: 100%;
+        padding: 12px 20px ;
+        margin: 8px 0px;
+        box-sizing: border-box;
+
+    }
+    #task{
+        background-color: mediumorchid;
+        margin-top:  12px;
+        padding: 24px;
+        border-radius: 8px;
+        border-style: outset;
+        
+    }
+</style>
+<body>
+
+</body>
+
+</html>
+<div class='container py-4 my-4' id='main'>
+    
+     <form method='POST' request='/'>{% csrf_token %}
+        {{form.title}}  
+        <input class='btn btn-primary' id='createtask' type="submit" value="Create Task">
+       
+     </form><br>
+
+
+
+    {% for task in task %}
+    <div class=' my-4' id='task'>
+        {% if task.complete == True %}
+        <strike>{{task}}</strike>
+        
+        {% else %}
+        <span>{{task}}</span>
+       
+        {% endif %}
+        
+        <a class ='btn btn-primary mx-1' href="{%url 'update_task' task.id %}">Update</a>
+        <a class ='btn btn-danger' href="{%url 'delete' task.id %}">Delete</a>
+        
+        
+    </div>
+
+    {% endfor %}
+</div>
